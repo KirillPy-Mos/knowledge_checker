@@ -24,6 +24,10 @@ setter_name = ""
 setter_subject = ""
 setter_class = 0
 formule_for_get_and_set = ["name", "subject", "class"]
+questions_maths_7_function = {"""
+Как читают запись y=f(x)?""":"функция f от переменной x, значение функции равно y",
+"""Найдите значение функции y = 5x - 2x^2, соответствующее значению аргумента -1""":-7,
+"""Найдите значение функции y = 6x + 19, если x = 0,5.""":22}
 
 #functions
 
@@ -60,7 +64,7 @@ while True:
             user_set_data_list.append(setter_class)
             data_user_setting.writerow(user_set_data_list)
             print("Аккаунт создан! Вход в него")
-            
+
             print("Вход в систему, подождите...")
             time.sleep(5)
             data_user = csv.reader(u_d)
