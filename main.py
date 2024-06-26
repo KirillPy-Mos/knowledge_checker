@@ -1,5 +1,6 @@
 # imports
 import random, time, csv
+import checker, info
 
 # connect to files
 reg_status_set = open("reg.txt", "w")
