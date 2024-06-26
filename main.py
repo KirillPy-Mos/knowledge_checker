@@ -90,3 +90,24 @@ def viev_information():
     print("Имя -", name_user)
     print("Класс -", class_user)
     print("Предмет -", subject_user)
+
+def menu():
+    print("Вы в меню. Выберите действие:")
+    com = input("""
+***********************************
+Выйти - exit
+Посмотреть свои данные - info
+Проверить знания - check
+------------> """)
+    if com == "exit":
+        print("Выход")
+        time.sleep(3)
+        raise SystemExit(0)
+    elif com == "info":
+        viev_information()
+    elif com == "check":
+        print("В разработке")
+    print("\n\n\n")
+
+while True:
+    menu()
