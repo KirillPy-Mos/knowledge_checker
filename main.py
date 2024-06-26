@@ -48,6 +48,7 @@ while True:
             subject_user = data_user_list[1]
             class_user = data_user_list[2]
             print("Вход выполнен. Здраствуйте,", name_user, "!")
+            break
         else:
             print("Аккаунт не найден. Создание нового")
             data_user_setting = csv.writer(u_d)
@@ -63,6 +64,8 @@ while True:
             user_set_data_list.append(setter_subject)
             user_set_data_list.append(setter_class)
             data_user_setting.writerow(user_set_data_list)
+            reg_status_set.write("1")
+            reg_status = True
             print("Аккаунт создан! Вход в него")
 
             print("Вход в систему, подождите...")
@@ -79,3 +82,11 @@ while True:
             subject_user = data_user_list[1]
             class_user = data_user_list[2]
             print("Вход выполнен. Здраствуйте,", name_user, "!")
+            break
+    login_and_register()
+
+def viev_information():
+    print("Вывод информации:")
+    print("Имя -", name_user)
+    print("Класс -", class_user)
+    print("Предмет -", subject_user)
