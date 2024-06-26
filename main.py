@@ -77,7 +77,6 @@ while True:
             for i in range(0, 3):
                 if formule_for_get_and_set[i] in data_user_list:
                     data_user_list.remove(formule_for_get_and_set[i])
-            global name_user, subject_user, class_user
             name_user = data_user_list[0]
             subject_user = data_user_list[1]
             class_user = data_user_list[2]
