@@ -1,15 +1,19 @@
 # imports
-import random, time, csv
-import checker, info
+import csv
+import random
+import time
+
+import checker
+import info
 
 # connect to files
 reg_status_set = open("reg.txt", "w")
 reg_status_get = open("reg.txt", "r")
 if reg_status_get:
-    u_d = open("user_data1.csv", "r")
+    u_d = open("userdata1.csv", "r")
     reg_status = True
 else:
-    u_d = open("user_data1.csv", "w")
+    u_d = open("userdata1.csv", "w")
 
 # vars
 subject_user = ""
@@ -32,11 +36,29 @@ questions_maths_7_function = {"""
 
 #functions
 
-while True:
-    def login_and_register():
+def menu():
+    print("Вы в меню. Выберите действие:")
+    com = input("""
+***********************************
+Выйти - exit
+Посмотреть свои данные - info
+Проверить знания - check
+------------> """)
+    if com == "exit":
+        print("Выход")
+        time.sleep(3)
+        raise SystemExit(0)
+    elif com == "info":
+        info.info()
+    elif com == "check":
+        print("В разработке")
+    print("\n\n\n")
+
+def login_and_register():
         print("Вход в систему, подождите...")
         time.sleep(5)
-        if reg_status:
+        global reg_status
+        if str(reg_status):
             data_user = csv.reader(u_d)
             data_user_list = []
             for data in data_user:
@@ -48,8 +70,7 @@ while True:
             name_user = data_user_list[0]
             subject_user = data_user_list[1]
             class_user = data_user_list[2]
-            print("Вход выполнен. Здраствуйте,", name_user, "!")
-            break
+            print("Вход выполнен. Здравствуйте,", name_user, "!")
         else:
             print("Аккаунт не найден. Создание нового")
             data_user_setting = csv.writer(u_d)
@@ -81,33 +102,8 @@ while True:
             name_user = data_user_list[0]
             subject_user = data_user_list[1]
             class_user = data_user_list[2]
-            print("Вход выполнен. Здраствуйте,", name_user, "!")
-            break
-    login_and_register()
+            print("Вход выполнен. Здравствуйте,", name_user, "!")
 
-def viev_information():
-    print("Вывод информации:")
-    print("Имя -", name_user)
-    print("Класс -", class_user)
-    print("Предмет -", subject_user)
-
-def menu():
-    print("Вы в меню. Выберите действие:")
-    com = input("""
-***********************************
-Выйти - exit
-Посмотреть свои данные - info
-Проверить знания - check
-------------> """)
-    if com == "exit":
-        print("Выход")
-        time.sleep(3)
-        raise SystemExit(0)
-    elif com == "info":
-        viev_information()
-    elif com == "check":
-        print("В разработке")
-    print("\n\n\n")
-
+login_and_register()
 while True:
     menu()
